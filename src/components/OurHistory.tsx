@@ -1,11 +1,43 @@
 import Image from "next/image";
-import { PhotoGallery } from "@/app/utils/photo-gallery";
-import SectionHeaderProps from "./SectionHeaderProps";
+import SectionHeaderProps from "./SectionHeader";
+import { CoverImage } from "./ui/myImage";
 
 function OurHistory() {
+  const gallery = [
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/quiz-23.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/public-lecture.png" },
+    { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
+  ];
   return (
-    <section className="bg-[#F7F5F1] min-h-screen w-full py-[60px] md:py-[120px] px-[24px] md:px-[80px] relative flex flex-col items-center">
-      <div className="flex items-center justify-center flex-col gap-[48px]">
+    <section className="bg-[#F7F5F1] w-full py-[60px] md:py-[120px] px-[24px] md:px-[80px] relative flex flex-col items-center">
+      <div className="flex items-center justify-center flex-col gap-[48px] w-full">
         <SectionHeaderProps
           title="OUR HISTORY"
           desc="Seven decades of service, scholarship and brotherhood"
@@ -17,14 +49,13 @@ function OurHistory() {
           link="/"
         />
 
-        <div className="grid grid-cols-6 md:grid-cols-10 gap-[8.05px]">
-          {PhotoGallery.map((photo) => (
-            <div key={photo.id}>
-              <Image
-                src={photo.photo}
-                alt=""
-                className="w-[50.79px] md:w-[120.75px] h-[50.79px] md:h-[120.75px]"
-              />
+        <div className="grid grid-cols-6 md:grid-cols-10 gap-2 w-full">
+          {gallery.map((photo, index) => (
+            <div
+              key={index + photo.id}
+              className="relative aspect-square w-full"
+            >
+              <CoverImage src={photo.photo} alt={photo.id} />
             </div>
           ))}
         </div>

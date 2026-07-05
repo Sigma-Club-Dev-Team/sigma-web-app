@@ -1,14 +1,14 @@
-import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
 import OurActivities from "@/components/OurActivities";
 import OurHistory from "@/components/OurHistory";
 
 function page() {
   return (
-    <div className="w-full h-full">
-      <Header />
+    <main>
+      <HeroSection />
       <OurHistory />
       <OurActivities />
-    </div>
+    </main>
   );
 }
 

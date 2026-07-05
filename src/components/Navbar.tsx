@@ -12,17 +12,17 @@ import {
   NavRightSide,
   BottomNavLeft,
   BottomNavRight,
-} from "@/app/utils/nav";
+} from "@/lib/utils/nav";
 import { ChevronDown } from "lucide-react";
-import { goudyOldStyle, hankeen, inter } from "@/app/layout";
+import { goudyOldStyle, inter } from "@/fonts";
 
 function Navbar() {
   return (
-    <nav className=" relative overflow-hidden w-full  flex flex-col items-center justify-center">
+    <nav className=" fixed top-0 left-0 right-0 z-50 overflow-hidden w-full  flex flex-col items-center justify-center">
       <div className="hidden md:flex items-center justify-between w-full px-[80px] h-[48px] bg-sigma-purple">
         <div className="flex items-center justify-center">
-          {NavSocials.map((social) => (
-            <Link key={social.id} href={social.link} className="px-[12px]">
+          {NavSocials.map((social, idx) => (
+            <Link key={social.id + idx} href={social.link} className="px-[12px]">
               <Image
                 src={social.icon}
                 alt={social.name}
@@ -40,7 +40,7 @@ function Navbar() {
               <Link
                 key={item.id}
                 href={item.link}
-                className={`${hankeen.className} text-white text-[14px] font-normal`}
+                className={`text-white text-[14px] font-normal`}
               >
                 <p className="px-[16px]">{item.name}</p>
               </Link>
@@ -51,7 +51,7 @@ function Navbar() {
             <input
               type="text"
               placeholder="Search..."
-              className={`${hankeen.className} bg-transparent italic text-[14px] outline-none  text-[#FFFFFF99]`}
+              className={`bg-transparent italic text-[14px] outline-none  text-[#FFFFFF99]`}
             />
             <Image src={searchIcon} alt="Search" width={16} height={16} />
           </div>
@@ -68,7 +68,7 @@ function Navbar() {
             <Link
               key={item.id}
               href={item.link}
-              className={`${hankeen.className} text-white text-[14px] font-normal flex items-center gap-[4px] py-[14px] px-[40px] hover:text-sigma-gold transition-colors duration-200`}
+              className={`text-white text-[14px] font-normal flex items-center gap-[4px] py-[14px] px-[40px] hover:text-sigma-gold transition-colors duration-200`}
             >
               <span>{item.name}</span>
               <ChevronDown size={14} className="" />
@@ -103,7 +103,7 @@ function Navbar() {
             <Link
               key={item.id}
               href={item.link}
-              className={`${hankeen.className} text-white text-[14px] font-normal py-[14px] px-[40px] hover:text-sigma-gold transition-colors duration-200`}
+              className={`text-white text-[14px] font-normal py-[14px] px-[40px] hover:text-sigma-gold transition-colors duration-200`}
             >
               {item.name}
             </Link>
