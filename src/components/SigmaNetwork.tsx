@@ -1,8 +1,10 @@
-import { goudyOldStyle, hankeen } from "@/app/layout";
+// import { goudyOldStyle, hankeen } from "@/app/layout";
+
+import { goudyOldStyle } from "@/fonts";
 
 function SigmaNetwork() {
   return (
-    <section className="px-[24px] md:px-[80px] py-[120px] flex flex-col items-center gap-[64px] md:gap-[48px] bg-sigma-navy">
+    <section className="px-[24px] md:px-[80px] py-[120px] flex flex-col items-center gap-[64px] md:gap-[48px] bg-sigma-navy relative">
       <div className="flex items-center flex-col text-center text-white md:gap-[px]">
         <h2
           className={`${goudyOldStyle.className} text-center text-sigma-white pb-[18px] text-[28px] tracking-[-0.28px] font-bold`}
@@ -10,11 +12,7 @@ function SigmaNetwork() {
           The Sigma Club Network
         </h2>
 
-        <p
-          className={`${
-            hankeen.className
-          } text-[14px] tracking-[-0.14px] md:text-[18px]`}
-        >
+        <p className={`text-[14px] tracking-[-0.14px] md:text-[18px]`}>
           Our network of student leaders, alumni, and honorary inductees is at
           the heart of what we do. Through world-class civic lectures, secondary
           school academic development, and targeted humanitarian initiatives,
@@ -31,7 +29,7 @@ function SigmaNetwork() {
           >
             75+ Years
           </h4>
-          <p className={`${hankeen.className} text-[13px] w-[280px]`}>
+          <p className={` text-[13px] w-[280px]`}>
             of continuous student leadership and character development.
           </p>
         </div>
@@ -43,7 +41,7 @@ function SigmaNetwork() {
           >
             1,000+ Schools
           </h4>
-          <p className={`${hankeen.className} text-[13px] w-[280px]`}>
+          <p className={`text-[13px] w-[280px]`}>
             engaged through academic quiz competitions.
           </p>
         </div>
@@ -55,7 +53,7 @@ function SigmaNetwork() {
           >
             100% Volunteer-Led
           </h4>
-          <p className={`${hankeen.className} text-[13px] w-[280px]`}>
+          <p className={`text-[13px] w-[280px]`}>
             undergraduate administrative and philanthropic execution.
           </p>
         </div>

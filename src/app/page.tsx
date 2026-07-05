@@ -1,3 +1,4 @@
+import Discourse from "@/components/Discourse";
 import HeroSection from "@/components/HeroSection";
 import OurActivities from "@/components/OurActivities";
 import OurHistory from "@/components/OurHistory";
@@ -10,6 +11,7 @@ function page() {
       <OurHistory />
       <OurActivities />
       <SigmaNetwork />
+      <Discourse />
     </main>
   );
 }
