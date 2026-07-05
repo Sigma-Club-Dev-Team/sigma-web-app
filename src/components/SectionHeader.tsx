@@ -1,4 +1,4 @@
-import { goudyOldStyle, hankeen } from "@/app/layout";
+import { goudyOldStyle } from "@/fonts";
 import Link from "next/link";
 import React from "react";
 
@@ -34,13 +34,13 @@ function SectionHeaderProps({
         </h1>
       </div>
       <p
-        className={`${hankeen.className} text-sigma-black text-center text-[14px] md:text-[18px] font-normal leading-normal tracking-[-0.14px] pb-[16px] md:pb-[24px] w-[345px] md:w-[800px]`}
+        className={`text-sigma-black text-center text-[14px] md:text-[18px] font-normal leading-normal tracking-[-0.14px] pb-[16px] md:pb-[24px] w-[345px] md:w-[800px]`}
       >
         {paragraph}
       </p>
       <Link
         href={link}
-        className={`${hankeen.className} mt-[16px] py-[14px] px-[24px] flex items-center justify-center gap-[4px] bg-transparent border border-sigma-gold text-sigma-gold rounded-[6px] text-[16px] font-semibold tracking-[-0.14px]`}
+        className={`mt-[16px] py-[14px] px-[24px] flex items-center justify-center gap-[4px] bg-transparent border border-sigma-gold text-sigma-gold rounded-[6px] text-[16px] font-semibold tracking-[-0.14px]`}
       >
         {btntext}
       </Link>

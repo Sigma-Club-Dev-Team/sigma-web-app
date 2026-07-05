@@ -1,16 +1,16 @@
-import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
 import OurActivities from "@/components/OurActivities";
 import OurHistory from "@/components/OurHistory";
 import SigmaNetwork from "@/components/SigmaNetwork";
 
 function page() {
   return (
-    <div className="w-full h-full">
-      <Header />
+    <main>
+      <HeroSection />
       <OurHistory />
       <OurActivities />
       <SigmaNetwork />
-    </div>
+    </main>
   );
 }
 
