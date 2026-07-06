@@ -31,14 +31,14 @@ const UpcomingEvent = [
 
 function UpcomingEvents() {
   return (
-    <section className="flex items-center justify-center flex-col py-15 md:py-[7.5rem] px-6 md:px-[5rem] gap-[3rem] relative overflow-hidden">
+    <section className="flex items-center justify-center flex-col py-15 md:py-30 px-6 md:px-20 gap-12 relative overflow-hidden">
       <div className="flex flex-col items-center justify-center gap-[4px] w-full text-sigma-black">
         <h1
           className={`${goudyOldStyle.className} text-center text-sigma-black text-sm  md:text-[3rem]`}
         >
           UPCOMING EVENT
         </h1>
-        <div className="w-32 md:w-[12.125rem] h-[0.125rem] bg-sigma-gold"></div>
+        <div className="w-32 md:w-48.5 h-0.5 bg-sigma-gold"></div>
       </div>
 
       <div className="flex items-center justify-center md:grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
@@ -48,15 +48,15 @@ function UpcomingEvents() {
             key={event.id}
             className="flex items-start flex-col justify-center w-full"
           >
-            <div className="relative w-[13rem] md:w-full aspect-square overflow-hidden mb-[0.75rem] md:mb-[1.5rem]">
+            <div className="relative w-52 md:w-full aspect-square overflow-hidden mb-3 md:mb-6">
               <CoverImage src={event.img} alt={event.title} />
             </div>
             <h1
-              className={`${goudyOldStyle.className} text-[1rem] md:text-[1.375rem] text-sigma-purple pb-[0.25rem]`}
+              className={`${goudyOldStyle.className} text-[1rem] md:text-[1.375rem] text-sigma-purple pb-1`}
             >
               {event.title}
             </h1>
-            <div className="flex items-start justify-center gap-[0.125rem] md:gap-[0.5rem] text-[0.625rem] md:text-[0.875rem] text-secondary shrink-0">
+            <div className="flex items-start justify-center gap-0.5 md:gap-2 text-[0.625rem] md:text-[0.875rem] text-secondary shrink-0">
               <p className={`shrink-0`}>{event.date}</p>
               <small className="">•</small>
               <p className={`shrink-0 `}>{event.venue}</p>

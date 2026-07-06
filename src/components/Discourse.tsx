@@ -36,13 +36,13 @@ function Discourse() {
   return (
     <section className="flex flex-col md:flex-row items-start justify-center md:justify-between pt-30 pb-20 px-6 md:px-20 w-full gap-12 md:gap-9 bg-[#F7F5F1] relative overflow-hidden">
       <div className="flex w-full h-full flex-col items-start">
-        <div className="flex flex-col items-start md:items-start justify-center gap-[4px] text-sigma-black">
+        <div className="flex flex-col items-start md:items-start justify-center gap-1 text-sigma-black">
           <h1
             className={`${goudyOldStyle.className} md:text-left text-sigma-black text-sm  md:text-[1.125rem]`}
           >
             THE SIGMA DISCOURSE
           </h1>
-          <div className="w-[84px] h-[2px] bg-sigma-gold"></div>
+          <div className="w-21 h-0.5 bg-sigma-gold"></div>
         </div>
         <h2
           className={`${goudyOldStyle.className} py-4.5 md:py-6 text-[1.75rem] md:text-[3rem] font-bold tracking-[-0.0175rem]`}
@@ -57,7 +57,7 @@ function Discourse() {
         </p>
         <div className="hidden md:flex  w-full md:mt-10">
           <button
-            className={`cursor-pointer flex items-center justify-center py-[14px] px-[24px] rounded-[6px] text-sigma-navy font-semibold tracking-[-0.14px] bg-transparent border-2 border-sigma-purple`}
+            className={`cursor-pointer flex items-center justify-center py-3.5 px-6 rounded-md text-sigma-navy font-semibold tracking-[-0.00875rem] bg-transparent border-2 border-sigma-purple`}
           >
             Read More
           </button>
@@ -98,7 +98,7 @@ function Discourse() {
 
       <div className="flex md:hidden  items-center justify-center w-full">
         <button
-          className={`flex items-center justify-center py-[14px] px-[24px] rounded-[6px] text-sigma-navy font-semibold tracking-[-0.14px] bg-transparent border-2 border-sigma-purple`}
+          className={`flex items-center justify-center py-3.5 px-6 rounded-md text-sigma-navy font-semibold tracking-[-0.00875rem] bg-transparent border-2 border-sigma-purple`}
         >
           Read More
         </button>

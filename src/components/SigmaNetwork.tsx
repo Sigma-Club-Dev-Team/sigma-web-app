@@ -2,7 +2,10 @@ import { goudyOldStyle } from "@/fonts";
 
 function SigmaNetwork() {
   return (
-    <section className="px-6 md:px-20 py-30 flex flex-col items-center gap-16 md:gap-12 bg-sigma-navy relative">
+    <section className="px-6 md:px-20 py-30 flex flex-col items-center gap-16 md:gap-12 bg-sigma-navy relative overflow-hidden">
+      <div className="absolute -right-1.5 md:right-[-1.06569rem] -top-5.5 md:-top-7.75 w-27.75 md:w-[11.56569rem] h-27 md:h-45 aspect-37/36 opacity-60 bg-[url('/assets/images/pngs/Crown.png')] bg-center bg-cover bg-no-repeat pointer-events-none z-0"></div>
+      <div className="absolute -left-3 bottom-0 w-45.5 h-22.75 opacity-60 bg-[url('/assets/images/pngs/Trumpet.png')] bg-center bg-cover bg-no-repeat pointer-events-none z-0"></div>
+
       <div className="flex items-center flex-col text-center text-white md:gap-[px]">
         <h2
           className={`${goudyOldStyle.className} text-center text-sigma-white pb-4.5 text-[1.75rem] tracking-[-0.0175rem] font-bold`}
