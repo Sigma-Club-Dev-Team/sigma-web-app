@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { hankeen } from "@/fonts";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Sigma Club",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className="min-h-full w-full">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

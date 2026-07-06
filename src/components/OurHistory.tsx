@@ -36,8 +36,8 @@ function OurHistory() {
     { id: "mtn-ceo", photo: "/assets/images/pngs/mtn-ceo.png" },
   ];
   return (
-    <section className="bg-[#F7F5F1] w-full py-[60px] md:py-[120px] px-[24px] md:px-[80px] relative flex flex-col items-center">
-      <div className="flex items-center justify-center flex-col gap-[48px] w-full">
+    <section className="bg-[#F7F5F1] w-full py-15 md:py-30 px-6 md:px-20 relative flex flex-col items-center">
+      <div className="flex items-center justify-center flex-col gap-12 w-full">
         <SectionHeaderProps
           title="OUR HISTORY"
           desc="Seven decades of service, scholarship and brotherhood"

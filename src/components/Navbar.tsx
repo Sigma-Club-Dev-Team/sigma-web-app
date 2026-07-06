@@ -1,4 +1,5 @@
-// "use client";
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -16,13 +17,34 @@ import {
 import { ChevronDown } from "lucide-react";
 import { goudyOldStyle, inter } from "@/fonts";
 
+const onscroll = false;
+
 function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className=" fixed top-0 left-0 right-0 z-50 overflow-hidden w-full  flex flex-col items-center justify-center">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 overflow-hidden w-full flex flex-col items-center justify-center transition-all duration-300 ${isScrolled ? "hidden" : ""}`}
+    >
       <div className="hidden md:flex items-center justify-between w-full px-[80px] h-[48px] bg-sigma-purple">
         <div className="flex items-center justify-center">
           {NavSocials.map((social, idx) => (
-            <Link key={social.id + idx} href={social.link} className="px-[12px]">
+            <Link
+              key={social.id + idx}
+              href={social.link}
+              className="px-[12px]"
+            >
               <Image
                 src={social.icon}
                 alt={social.name}
