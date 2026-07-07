@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   Hamburger,
   Logo,
@@ -20,7 +22,7 @@ import NavMobile from "./ui/NavMobile";
 
 const aboutLinks = [
   { id: 1, name: "Overview", link: "/" },
-  { id: 2, name: "Leadership Structure", link: "/" },
+  { id: 2, name: "Leadership Structure", link: "/leadership" },
   { id: 3, name: "Roll of Honour", link: "/" },
   { id: 4, name: "Old Sigmites & Chiefs", link: "/" },
   { id: 5, name: "Honorary Sigmites", link: "/" },
@@ -32,11 +34,16 @@ const ourWorkLinks = [
   { id: 3, name: "Impacts and Outreach", link: "/" },
 ];
 
+import purpleLogo from "../../public/assets/icons/logo-purple.svg.svg";
+
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showOurWorkDropdown, setShowOurWorkDropdown] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isLeadership = pathname === "/leadership";
 
   const toggleAboutDropdown = () => {
     setShowAboutDropdown(!showAboutDropdown);
@@ -65,7 +72,10 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50  w-full flex flex-col items-center justify-center transition-all duration-300 ${isScrolled ? "hidden" : ""}`}
+      className={`
+      ${isLeadership ? "absolute" : "fixed"} 
+      top-0 left-0 right-0 z-50 w-full flex flex-col items-center justify-center transition-all duration-300 
+      ${isScrolled && !isLeadership ? "hidden" : ""}`}
     >
       <div className="hidden md:flex items-center justify-between w-full px-20 h-12 bg-sigma-purple">
         <div className="flex items-center justify-center">
@@ -106,7 +116,10 @@ function Navbar() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between min-h-18 w-full md:px-11.25 gap-6 bg-linear-to-b from-[#20212466] to-[#20212400] md:bg-linear-to-t md:from-black/0 md:to-black/20 mdbackdrop-blur-[0.625rem]">
+      <div
+        className={`flex items-center justify-between min-h-18 w-full md:px-11.25 gap-6   
+        ${isLeadership ? "bg-white" : "bg-linear-to-t md:from-black/0 md:to-black/20 mdbackdrop-blur-[0.625rem]"}`}
+      >
         <span
           onClick={toggleNav}
           className="md:hidden cursor-pointer mt-6 ml-6 mb-2 w-10 h-10 rounded-[0.3125rem] border  border-[#E8EDF8]/40 bg-white/20 flex items-center justify-center relative"
@@ -118,17 +131,21 @@ function Navbar() {
 
         <div className="hidden md:flex items-center justify-center h-15 relative">
           {BottomNavLeft.map((item) => (
-            <div key={item.id} className="relative h-full flex items-center">
+            <div
+              key={item.id}
+              className={`relative h-full flex items-center text-sm font-normal
+              ${isLeadership ? "text-sigma-navy" : "text-white"}`}
+            >
               {item.id === 3 ? (
                 <Link
                   href={item.link}
-                  className={`text-white text-sm font-normal flex items-center gap-1 py-3.5 px-10 hover:text-sigma-gold transition-colors duration-200`}
+                  className={` flex items-center gap-1 py-3.5 px-10 hover:text-sigma-gold transition-colors duration-200`}
                 >
                   <span>{item.name}</span>
                 </Link>
               ) : (
                 <button
-                  className={`cursor-pointer text-white text-sm font-normal flex items-center gap-1 py-3.5 px-10 hover:text-sigma-gold transition-colors duration-200`}
+                  className={`cursor-pointer flex items-center gap-1 py-3.5 px-10 hover:text-sigma-gold transition-colors duration-200`}
                   onClick={() => {
                     if (item.id === 1) toggleAboutDropdown();
                     if (item.id === 2) toggleOurWorkDropdown();
@@ -184,15 +201,20 @@ function Navbar() {
           ))}
         </div>
 
-        <span className="mt-3 flex flex-col items-center gap-[0.43875rem] md:gap-3 md:py-4 md:px-12">
+        <Link
+          href={"/"}
+          className="mt-3 flex flex-col items-center gap-[0.43875rem] md:gap-3 md:py-4 md:px-12"
+        >
           <Image
-            src={Logo}
+            src={isLeadership ? purpleLogo : Logo}
             width={59.324}
             height={35.43}
             alt=""
             className="md:w-[6.338rem] md:h-[3.78519rem]"
           />
-          <div className="flex flex-col items-center text-white">
+          <div
+            className={`flex flex-col items-center ${isLeadership ? "text-sigma-navy" : "text-white"}`}
+          >
             <h1
               className={`${goudyOldStyle.className} font-bold text-[0.61794rem] md:text-[1.05631rem]`}
             >
@@ -204,14 +226,16 @@ function Navbar() {
               University of Ibadan
             </p>
           </div>
-        </span>
+        </Link>
 
-        <div className="hidden md:flex items-center justify-center h-15">
+        <div
+          className={`hidden md:flex items-center justify-center h-15 ${isLeadership ? "text-sigma-navy" : "text-white"}`}
+        >
           {BottomNavRight.map((item) => (
             <Link
               key={item.id}
               href={item.link}
-              className={`text-white text-sm font-normal py-3.5 px-10 hover:text-sigma-gold transition-colors duration-200`}
+              className={` text-sm font-normal py-3.5 px-10 hover:text-sigma-gold transition-colors duration-200 `}
             >
               {item.name}
             </Link>

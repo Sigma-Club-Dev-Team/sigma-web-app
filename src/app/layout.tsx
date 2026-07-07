@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${hankeen.className} w-full antialiased`}>
-      <body className="min-h-full w-full">
+      <body className="flex flex-col min-h-screen w-full">
         <Navbar />
-        {children}
+        <main className="grow w-full">{children}</main>
         <Footer />
       </body>
     </html>
