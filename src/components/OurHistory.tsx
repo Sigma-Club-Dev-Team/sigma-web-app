@@ -1,5 +1,4 @@
-import Image from "next/image";
-import SectionHeaderProps from "./SectionHeader";
+import SectionHeader from "./SectionHeader";
 import { CoverImage } from "./ui/myImage";
 
 function OurHistory() {
@@ -41,7 +40,7 @@ function OurHistory() {
       <div className="absolute right-0 md:right-0 bottom-[0.00944rem] md:bottom-[0.02281rem] w-27.75 md:w-[14.55356rem] h-44 md:h-92.25 aspect-41/65 md:aspect-53/84 opacity-40 mix-blend-luminosity bg-[url('/assets/images/pngs/sigma-artifacts2.png')] bg-[lightgray] bg-position-[0px_0px] bg-size-[116.933%_115.726%] bg-no-repeat pointer-events-none z-0" />
 
       <div className="flex items-center justify-center flex-col gap-12 w-full relative z-10">
-        <SectionHeaderProps
+        <SectionHeader
           title="OUR HISTORY"
           desc="Seven decades of service, scholarship and brotherhood"
           paragraph="Founded in 1950, Sigma Club is the oldest student organisation in

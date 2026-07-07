@@ -1,8 +1,9 @@
 import { goudyOldStyle } from "@/fonts";
 import Image from "next/image";
 import Link from "next/link";
+import { CoverImage } from "./ui/myImage";
 
-export const NewsPublications = [
+export const newsPublications = [
   {
     id: 1,
     link: "/",
@@ -65,11 +66,11 @@ function Discourse() {
       </div>
 
       <div className="flex flex-col items-start w-full">
-        {NewsPublications.map((item) => (
+        {newsPublications.map((item) => (
           <Link
             key={item.id}
             href={item.link}
-            className={`flex items-center justify-between w-full gap-4 py-6 border-b border-b-border ${item.id === NewsPublications.length ? "border-b-0" : ""}`}
+            className={`flex items-center justify-between w-full gap-4 py-6 border-b border-b-border ${item.id === newsPublications.length ? "border-b-0" : ""}`}
           >
             <div className="flex flex-col items-start justify-center">
               <h6
@@ -90,7 +91,7 @@ function Discourse() {
               </div>
             </div>
             <div className="relative h-25 w-25">
-              <Image src={item.thumbnail} alt={item.title} fill />
+              <CoverImage src={item.thumbnail} alt={item.title} />
             </div>
           </Link>
         ))}
