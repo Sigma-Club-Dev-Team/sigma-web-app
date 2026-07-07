@@ -2,7 +2,7 @@ import { goudyOldStyle } from "@/fonts";
 import Link from "next/link";
 import React from "react";
 
-function SectionHeaderProps({
+function SectionHeader({
   title,
   desc,
   paragraph,
@@ -48,4 +48,4 @@ function SectionHeaderProps({
   );
 }
 
-export default SectionHeaderProps;
+export default SectionHeader;

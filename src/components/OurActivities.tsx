@@ -2,7 +2,7 @@ import Link from "next/link";
 import { goudyOldStyle } from "@/fonts";
 import { CoverImage } from "./ui/myImage";
 
-export const Activities = [
+export const activities = [
   {
     id: 1,
     link: "/",
@@ -28,28 +28,28 @@ export const Activities = [
 
 function OurActivities() {
   return (
-    <section className="px-[24px] md:px-[80px] pt-[60px] pb-[80px] md:pt-[120px] md:pb-[160px] flex flex-col items-center gap-[48px]">
-      <div className="flex items-center justify-center flex-col gap-[48px] w-full">
+    <section className="px-6 md:px-20 pt-15 pb-20 md:pt-30 md:pb-40 flex flex-col items-center gap-12">
+      <div className="flex items-center justify-center flex-col gap-12 w-full">
         <div className="flex items-center justify-center md:justify-between w-full flex-col md:flex-row">
           <div className="flex flex-col items-center justify-center md:items-start w-ful">
-            <div className="flex flex-col items-center md:items-start justify-center gap-[4px]">
+            <div className="flex flex-col items-center md:items-start justify-center gap-1">
               <h1
-                className={`${goudyOldStyle.className} text-center md:text-left text-sigma-black text-[14px] md:text-[18px]`}
+                className={`${goudyOldStyle.className} text-center md:text-left text-sigma-black text-sm md:text-lg`}
               >
                 OUR ACTIVITIES
               </h1>
-              <div className="w-[84px] h-[2px] bg-sigma-gold"></div>
+              <div className="w-21 h-[2px] bg-sigma-gold"></div>
             </div>
 
-            <div className="py-[18px] md:py-[24px] flex items-center text-center md:items-start md:text-left justify-center md:justify-start gap-[10px] w-[345px] md:w-[800px] ">
+            <div className="py-4.5 md:py-6 flex items-center text-center md:items-start md:text-left justify-center md:justify-start gap-2.5 w-86.25 md:w-200 ">
               <h1
-                className={`${goudyOldStyle.className} font-bold text-[28px] md:text-[48px] tracking-[-0.28px] md:tracking-[-0.48px] md:leading-[52.8px] text-sigma-black`}
+                className={`${goudyOldStyle.className} font-bold text-[1.75rem] md:text-[3rem] tracking-[-0.0175rem] md:tracking-[-0.03rem] md:leading-[3.3rem] text-sigma-black`}
               >
                 Our Philanthropic Activities
               </h1>
             </div>
             <p
-              className={`text-sigma-black text-center md:text-left text-[14px] md:text-[18px] font-normal leading-normal tracking-[-0.14px] pb-[16px] md:pb-[24px] w-[345px] md:w-[800px]`}
+              className={`text-sigma-black text-center md:text-left text-sm md:text-lg font-normal leading-normal tracking-[-0.00875rem] pb-4 md:pb-6 w-86.25 md:w-200`}
             >
               The Sigma Club is building a movement of student leaders,
               philanthropists, and reputable figures who believe that character
@@ -58,34 +58,34 @@ function OurActivities() {
           </div>
           <Link
             href={"."}
-            className={`mt-[16px] py-[14px] px-[24px] flex items-center justify-center gap-[4px] bg-transparent border border-sigma-gold text-sigma-gold rounded-[6px] text-[16px] font-semibold tracking-[-0.14px]`}
+            className={`mt-4 py-3.5 px-6 flex items-center justify-center gap-1 bg-transparent border border-sigma-gold text-sigma-gold rounded-md text-base font-semibold tracking-[-0.00875rem]`}
           >
             Explore Our Impact
           </Link>
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-[50px] md:gap-[16px] w-[345px] md:w-full">
-        {Activities.map((activities) => (
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12.5 md:gap-4 w-86.25 md:w-full">
+        {activities.map((activity) => (
           <Link
-            href={activities.link}
-            key={activities.id}
+            href={activity.link}
+            key={activity.id}
             className="flex flex-col gap-6"
           >
             <div className="relative w-full aspect-square">
-              <CoverImage src={activities.photo} alt={activities.title} />
+              <CoverImage src={activity.photo} alt={activity.title} />
             </div>
 
             <div className="flex flex-col gap-4">
               <h1
-                className={`${goudyOldStyle.className} text-sigma-purple text-[18px] font-normal leading-normal tracking-[-0.18px] w-full`}
+                className={`${goudyOldStyle.className} text-sigma-purple text-lg font-normal leading-normal tracking-[-0.01125rem] w-full`}
               >
-                {activities.title}
+                {activity.title}
               </h1>
               <p
-                className={`text-sigma-black text-[13px] font-normal leading-normal`}
+                className={`text-sigma-black text-[0.8125rem] font-normal leading-normal`}
               >
-                {activities.desc}
+                {activity.desc}
               </p>
             </div>
           </Link>
