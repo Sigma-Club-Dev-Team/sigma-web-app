@@ -2,7 +2,7 @@ import { goudyOldStyle } from "@/fonts";
 import Link from "next/link";
 import { CoverImage } from "./ui/myImage";
 
-const UpcomingEvent = [
+const upcomingEvent = [
   {
     id: 1,
     img: "/assets/images/pngs/sigma-quiz-competition.png",
@@ -42,7 +42,7 @@ function UpcomingEvents() {
       </div>
 
       <div className="flex items-center justify-center md:grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
-        {UpcomingEvent.map((event) => (
+        {upcomingEvent.map((event) => (
           <Link
             href={event.link}
             key={event.id}

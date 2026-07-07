@@ -2,7 +2,7 @@ import Link from "next/link";
 import { goudyOldStyle } from "@/fonts";
 import { CoverImage } from "./ui/myImage";
 
-export const Activities = [
+export const activities = [
   {
     id: 1,
     link: "/",
@@ -66,26 +66,26 @@ function OurActivities() {
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-12.5 md:gap-4 w-86.25 md:w-full">
-        {Activities.map((activities) => (
+        {activities.map((activity) => (
           <Link
-            href={activities.link}
-            key={activities.id}
+            href={activity.link}
+            key={activity.id}
             className="flex flex-col gap-6"
           >
             <div className="relative w-full aspect-square">
-              <CoverImage src={activities.photo} alt={activities.title} />
+              <CoverImage src={activity.photo} alt={activity.title} />
             </div>
 
             <div className="flex flex-col gap-4">
               <h1
                 className={`${goudyOldStyle.className} text-sigma-purple text-lg font-normal leading-normal tracking-[-0.01125rem] w-full`}
               >
-                {activities.title}
+                {activity.title}
               </h1>
               <p
                 className={`text-sigma-black text-[0.8125rem] font-normal leading-normal`}
               >
-                {activities.desc}
+                {activity.desc}
               </p>
             </div>
           </Link>
