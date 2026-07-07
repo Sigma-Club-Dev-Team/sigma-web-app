@@ -16,6 +16,7 @@ import {
 } from "@/lib/utils/nav";
 import { ChevronDown } from "lucide-react";
 import { goudyOldStyle, inter } from "@/fonts";
+import NavMobile from "./ui/NavMobile";
 
 const aboutLinks = [
   { id: 1, name: "Overview", link: "/" },
@@ -35,6 +36,7 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showAboutDropdown, setShowAboutDropdown] = useState(false);
   const [showOurWorkDropdown, setShowOurWorkDropdown] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleAboutDropdown = () => {
     setShowAboutDropdown(!showAboutDropdown);
@@ -44,6 +46,10 @@ function Navbar() {
   const toggleOurWorkDropdown = () => {
     setShowOurWorkDropdown(!showOurWorkDropdown);
     setShowAboutDropdown(false);
+  };
+
+  const toggleNav = () => {
+    setOpen(!open);
   };
 
   useEffect(() => {
@@ -101,9 +107,14 @@ function Navbar() {
       </div>
 
       <div className="flex items-center justify-between min-h-18 w-full md:px-11.25 gap-6 bg-linear-to-b from-[#20212466] to-[#20212400] md:bg-linear-to-t md:from-black/0 md:to-black/20 mdbackdrop-blur-[0.625rem]">
-        <span className="md:hidden cursor-pointer mt-6 ml-6 mb-2 w-10 h-10 rounded-[0.3125rem] border  border-[#E8EDF8]/40 bg-white/20 flex items-center justify-center relative">
+        <span
+          onClick={toggleNav}
+          className="md:hidden cursor-pointer mt-6 ml-6 mb-2 w-10 h-10 rounded-[0.3125rem] border  border-[#E8EDF8]/40 bg-white/20 flex items-center justify-center relative"
+        >
           <Image src={Hamburger} fill alt="Hamburger" />
         </span>
+
+        {open && <NavMobile closeNav={toggleNav} />}
 
         <div className="hidden md:flex items-center justify-center h-15 relative">
           {BottomNavLeft.map((item) => (
