@@ -24,7 +24,7 @@ const aboutLinks = [
   { id: 1, name: "Overview", link: "/" },
   { id: 2, name: "Leadership Structure", link: "/leadership" },
   { id: 3, name: "Roll of Honour", link: "/" },
-  { id: 4, name: "Old Sigmites & Chiefs", link: "/" },
+  { id: 4, name: "Old Sigmites & Chiefs", link: "/old-sigmites-and-chiefs" },
   { id: 5, name: "Honorary Sigmites", link: "/" },
 ];
 
@@ -44,6 +44,7 @@ function Navbar() {
   const pathname = usePathname();
 
   const isLeadership = pathname === "/leadership";
+  const isOldSigmitesAndChiefs = pathname === "/old-sigmites-and-chiefs";
 
   const toggleAboutDropdown = () => {
     setShowAboutDropdown(!showAboutDropdown);
@@ -73,9 +74,9 @@ function Navbar() {
   return (
     <nav
       className={`
-      ${isLeadership ? "absolute" : "fixed"} 
+      ${isLeadership || isOldSigmitesAndChiefs ? "absolute" : "fixed"} 
       top-0 left-0 right-0 z-50 w-full flex flex-col items-center justify-center transition-all duration-300 
-      ${isScrolled && !isLeadership ? "hidden" : ""}`}
+      ${isScrolled && !isLeadership && !isOldSigmitesAndChiefs ? "hidden" : ""}`}
     >
       <div className="hidden md:flex items-center justify-between w-full px-20 h-12 bg-sigma-purple">
         <div className="flex items-center justify-center">
@@ -118,7 +119,7 @@ function Navbar() {
 
       <div
         className={`flex items-center justify-between min-h-18 w-full md:px-11.25 gap-6   
-        ${isLeadership ? "bg-white" : "bg-linear-to-t md:from-black/0 md:to-black/20 mdbackdrop-blur-[0.625rem]"}`}
+        ${isLeadership || isOldSigmitesAndChiefs ? "bg-white" : "bg-linear-to-t md:from-black/0 md:to-black/20 mdbackdrop-blur-[0.625rem]"}`}
       >
         <span
           onClick={toggleNav}
@@ -134,7 +135,7 @@ function Navbar() {
             <div
               key={item.id}
               className={`relative h-full flex items-center text-sm font-normal
-              ${isLeadership ? "text-sigma-navy" : "text-white"}`}
+              ${isLeadership || isOldSigmitesAndChiefs ? "text-sigma-navy" : "text-white"}`}
             >
               {item.id === 3 ? (
                 <Link
@@ -172,6 +173,7 @@ function Navbar() {
                     <Link
                       key={link.id}
                       href={link.link}
+                      onClick={() => setShowAboutDropdown(false)}
                       className="bg-white border-b border-border py-4 px-6 flex items-center w-full hover:bg-slate-50 transition-colors duration-150"
                     >
                       <p className="text-sigma-purple text-sm font-semibold tracking-[-0.01rem]">
@@ -188,6 +190,7 @@ function Navbar() {
                     <Link
                       key={link.id}
                       href={link.link}
+                      onClick={() => setShowOurWorkDropdown(false)}
                       className="bg-white border-b border-border py-4 px-6 flex items-center w-full hover:bg-sigma-purple/3 transition-colors duration-150"
                     >
                       <p className="text-sigma-purple text-sm font-semibold tracking-[-0.01rem]">
@@ -206,14 +209,14 @@ function Navbar() {
           className="mt-3 flex flex-col items-center gap-[0.43875rem] md:gap-3 md:py-4 md:px-12"
         >
           <Image
-            src={isLeadership ? purpleLogo : Logo}
+            src={isLeadership || isOldSigmitesAndChiefs ? purpleLogo : Logo}
             width={59.324}
             height={35.43}
             alt=""
             className="md:w-[6.338rem] md:h-[3.78519rem]"
           />
           <div
-            className={`flex flex-col items-center ${isLeadership ? "text-sigma-navy" : "text-white"}`}
+            className={`flex flex-col items-center ${isLeadership || isOldSigmitesAndChiefs ? "text-sigma-navy" : "text-white"}`}
           >
             <h1
               className={`${goudyOldStyle.className} font-bold text-[0.61794rem] md:text-[1.05631rem]`}
@@ -229,7 +232,7 @@ function Navbar() {
         </Link>
 
         <div
-          className={`hidden md:flex items-center justify-center h-15 ${isLeadership ? "text-sigma-navy" : "text-white"}`}
+          className={`hidden md:flex items-center justify-center h-15 ${isLeadership || isOldSigmitesAndChiefs ? "text-sigma-navy" : "text-white"}`}
         >
           {BottomNavRight.map((item) => (
             <Link
