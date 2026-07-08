@@ -55,16 +55,16 @@ const executives = [
 function Executives() {
   return (
     <section className="flex flex-col items-center justify-center py-15 md:py-30 px-6 md:px-40 gap-16 md:gap-20 w-full overflow-hidden">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
-        <div
-          className="w-full max-w-125 md:w-125 aspect-5/6 h-auto md:h-150 shrink-0 "
-          style={{
-            background:
-              "url('/assets/images/jpgs/sigma-chief.jpg') lightgray -0.226px -25.029px / 100% 104.16% no-repeat",
-          }}
-        />
+      <div className="flex flex-col md:flex-row items-center justify-start gap-10 w-full">
+        <div className="relative w-full max-w-125 md:w-125 aspect-5/6 h-auto md:h-150 shrink-0 bg-[#D9D9D9] overflow-hidden">
+          <CoverImage
+            src="/assets/images/jpgs/sigma-chief.jpg"
+            alt="Meet the Chief, Adesokan Emmanuel"
+            position="-0.226px -25.029px"
+          />
+        </div>
 
-        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-8">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-8 md:max-w-145">
           <h1
             className={`${goudyOldStyle.className} max-w-103 text-[2rem] md:text-[3rem] text-sigma-purple font-bold tracking-[-0.03rem] leading-tight`}
           >
@@ -87,15 +87,16 @@ function Executives() {
         {executives.map((executive) => (
           <div
             key={executive.id}
-            className="flex flex-col items-center md:items-start gap-4 w-full max-w-86.5"
+            className="flex flex-col items-center md:items-start gap-4 w-full"
           >
-            <div
-              className="w-full aspect-square"
-              style={{
-                background: `url(${executive.photo}) lightgray 0px 0.485px / 100% 125% no-repeat`,
-              }}
-            />
-            <div className="flex flex-col  items-start justify-center gap-2 w-full md:max-w-[18.8rem]">
+            <div className="relative w-full aspect-square bg-[#D9D9D9] overflow-hidden">
+              <CoverImage
+                src={executive.photo}
+                alt={executive.name}
+                position="0px 0.485px"
+              />
+            </div>
+            <div className="flex flex-col items-start justify-center gap-2 w-full">
               <h3
                 className={`text-sigma-purple text-[1.375rem] ${goudyOldStyle.className}`}
               >
