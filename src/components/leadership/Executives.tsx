@@ -54,24 +54,23 @@ const executives = [
 
 function Executives() {
   return (
-    <section className="flex md:flex-col items-center justify-center py-30 px-40 gap-20 w-full">
-      <div className="flex items-center justify-center gap-10">
+    <section className="flex flex-col items-center justify-center py-15 md:py-30 px-6 md:px-40 gap-16 md:gap-20 w-full overflow-hidden">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full">
         <div
-          className="w-125 h-150 shrink-0"
+          className="w-full max-w-125 md:w-125 aspect-5/6 h-auto md:h-150 shrink-0 "
           style={{
             background:
               "url('/assets/images/jpgs/sigma-chief.jpg') lightgray -0.226px -25.029px / 100% 104.16% no-repeat",
-            backgroundColor: "#D9D9D9",
           }}
         />
 
-        <div className="flex flex-col items-start gap-8">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 md:gap-8">
           <h1
-            className={`${goudyOldStyle.className} max-w-103 text-[3rem] text-sigma-purple font-bold tracking-[-0.03rem] leading-[-0.03rem]`}
+            className={`${goudyOldStyle.className} max-w-103 text-[2rem] md:text-[3rem] text-sigma-purple font-bold tracking-[-0.03rem] leading-tight`}
           >
             Meet the Chief, Adesokan Emmanuel
           </h1>
-          <p className="text-sigma-black text-[1.125rem] leading-[-0.01125rem]">
+          <p className="text-sigma-black text-sm md:text-[1.125rem] leading-relaxed text-justify md:text-start">
             This is an alternative design of where a bio goes relative to the
             Sigma club. Lorem ipsum dolor sit amet consectetur adipiscing elit.
             Quisque faucibus ex sapien vitae pellentesque sem placerat. In id
@@ -80,28 +79,23 @@ function Executives() {
             bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
             posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad
             litora torquent per conubia nostra inceptos himenaeos.
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-            faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
-            pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
-            tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
-            Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut
-            hendrerit semper vel class aptent taciti sociosqu.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10  ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full justify-items-center">
         {executives.map((executive) => (
-          <div key={executive.id} className="flex flex-col items-start gap-4">
+          <div
+            key={executive.id}
+            className="flex flex-col items-center md:items-start gap-4 w-full max-w-86.5"
+          >
             <div
-              className="w-86.5 h-86.5 aspect-square"
+              className="w-full aspect-square"
               style={{
                 background: `url(${executive.photo}) lightgray 0px 0.485px / 100% 125% no-repeat`,
-                backgroundColor: "#D9D9D9",
               }}
             />
-            <div className="flex flex-col items-start justify-center gap-2 max-w-[18.8rem]">
+            <div className="flex flex-col  items-start justify-center gap-2 w-full md:max-w-[18.8rem]">
               <h3
                 className={`text-sigma-purple text-[1.375rem] ${goudyOldStyle.className}`}
               >
