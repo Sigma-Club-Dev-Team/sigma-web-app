@@ -29,7 +29,7 @@ const aboutLinks = [
 ];
 
 const ourWorkLinks = [
-  { id: 1, name: "All Projects", link: "/" },
+  { id: 1, name: "All Projects", link: "/programs" },
   { id: 2, name: "Flagship Projects", link: "/" },
   { id: 3, name: "Impacts and Outreach", link: "/" },
 ];
