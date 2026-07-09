@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { goudyOldStyle } from "@/fonts";
-import { ChevronDown, Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { newsPublications } from "../Discourse";
 import Link from "next/link";
 import { CoverImage } from "../ui/myImage";
@@ -17,6 +17,77 @@ const newsBtn = [
 
 function News() {
   const [activeCategory, setActiveCategory] = useState("ALL");
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 20;
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+    }
+  };
+
+  const renderPageNumbers = () => {
+    const pages = [];
+
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      // like page 1 'd always show
+      pages.push(1);
+
+      if (currentPage <= 4) {
+        // beginning: 1, 2, 3, 4, 5, ..., 20
+        pages.push(2, 3, 4, 5);
+        pages.push("...");
+        pages.push(totalPages);
+      } else if (currentPage >= totalPages - 3) {
+        // end: 1, ..., 16, 17, 18, 19, 20
+        pages.push("...");
+        for (let i = totalPages - 4; i <= totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        // the middle: 1, ..., currentPage-1, currentPage, currentPage+1, ..., 20
+        pages.push("...");
+        pages.push(currentPage - 1);
+        pages.push(currentPage);
+        pages.push(currentPage + 1);
+        pages.push("...");
+        pages.push(totalPages);
+      }
+    }
+
+    return pages.map((page, index) => {
+      if (page === "...") {
+        return (
+          <span
+            key={`ellipsis-${index}`}
+            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 text-sigma-navy font-bold text-sm md:text-[1.125rem]"
+          >
+            ...
+          </span>
+        );
+      }
+
+      const isActive = currentPage === page;
+
+      return (
+        <button
+          key={`page-${page}`}
+          onClick={() => handlePageChange(page as number)}
+          className={`cursor-pointer flex items-center justify-center w-8 h-8 md:w-10 md:h-10 font-bold text-sm md:text-[1.125rem] transition-colors duration-200 ${
+            isActive
+              ? "bg-sigma-navy text-white"
+              : "text-sigma-navy hover:bg-soft-white"
+          }`}
+        >
+          {page}
+        </button>
+      );
+    });
+  };
 
   return (
     <section className="flex flex-col items-center justify-center py-15 md:py-30 px-6 md:px-40 gap-16 md:gap-20 w-full overflow-hidden">
@@ -54,6 +125,7 @@ function News() {
       <div className="flex flex-col gap-20 w-full">
         {newsPublications.map((item) => (
           <Link
+            key={item.id}
             href={item.link}
             className="flex items-center justify-between gap-12"
           >
@@ -81,6 +153,40 @@ function News() {
             </div>
           </Link>
         ))}
+
+        {/* <div className="w-full border border-border" /> */}
+
+        <div className="w-full flex items-center justify-center gap-1 md:gap-3">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`cursor-pointer flex items-center justify-center gap-1.5 md:gap-2.5 md:text-[1.125rem] text-sigma-navy font-bold md:tracking-[-0.01125rem] md:py-1.5 px-3 h-8.75 transition-all duration-200 ${
+              currentPage === 1
+                ? "opacity-40 cursor-not-allowed"
+                : "hover:text-sigma-purple"
+            }`}
+          >
+            <ChevronLeft size={18} />
+            <p>Back</p>
+          </button>
+
+          <div className="flex items-center justify-center gap-1 md:gap-2">
+            {renderPageNumbers()}
+          </div>
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`cursor-pointer flex items-center justify-center gap-1.5 md:gap-2.5 md:text-[1.125rem] text-sigma-navy font-bold md:tracking-[-0.01125rem] md:py-1.5 px-3 md:h-8.75 transition-all duration-200 ${
+              currentPage === totalPages
+                ? "opacity-40 cursor-not-allowed"
+                : "hover:text-sigma-purple"
+            }`}
+          >
+            <p>Next</p>
+            <ChevronRight size={18} />
+          </button>
+        </div>
       </div>
     </section>
   );
