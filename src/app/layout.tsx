@@ -16,7 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${hankeen.className} w-full antialiased`}>
+    <html
+      lang="en"
+      className={`${hankeen.className} w-full antialiased`}
+      suppressHydrationWarning
+    >
       <body className="flex flex-col min-h-screen w-full">
         <Navbar />
         <main className="grow w-full">{children}</main>
