@@ -8,8 +8,8 @@ export const sectionBlock = defineType({
     defineField({
       name: "heading",
       type: "string",
-      description: "e.g. “Overview”, “History & Inception”",
-      validation: (rule) => rule.required(),
+      description:
+        "e.g. “Overview”, “History & Inception”. Optional — leave it empty to carry on under the heading above.",
     }),
     defineField({
       name: "body",
@@ -21,9 +21,13 @@ export const sectionBlock = defineType({
   ],
   preview: {
     select: { title: "heading", body: "body" },
-    prepare: ({ title, body }) => ({
-      title,
-      subtitle: Array.isArray(body) ? body[0] : undefined,
-    }),
+    prepare: ({ title, body }) => {
+      const first = Array.isArray(body) ? body[0] : undefined;
+      return {
+        // Headingless sections still need something to identify them in the list.
+        title: title || first,
+        subtitle: title ? first : "No heading",
+      };
+    },
   },
 });

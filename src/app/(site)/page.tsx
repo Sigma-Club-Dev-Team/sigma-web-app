@@ -6,17 +6,21 @@ import OurActivities from "@/components/OurActivities";
 import OurHistory from "@/components/OurHistory";
 import SigmaNetwork from "@/components/SigmaNetwork";
 import UpcomingEvents from "@/components/UpcomingEvents";
+import { getEvents } from "@/lib/events";
+import { getArticles } from "@/lib/news";
 
-function page() {
+async function page() {
+  const [articles, events] = await Promise.all([getArticles(), getEvents()]);
+
   return (
     <main>
       <HeroSection />
       <OurHistory />
       <OurActivities />
       <SigmaNetwork />
-      <Discourse />
+      <Discourse articles={articles.slice(0, 3)} />
       <Alumni />
-      <UpcomingEvents />
+      <UpcomingEvents events={events} />
       <MerchCTA />
     </main>
   );

@@ -44,15 +44,21 @@ type RawProgramme = Omit<Programme, "blocks"> & { blocks: RawBlock[] | null };
 function mapBlock(block: RawBlock): ProgrammeBlock | null {
   switch (block._type) {
     case "sectionBlock":
-      if (!block.heading || !block.body?.length) return null;
-      return { kind: "section", heading: block.heading, body: block.body };
+      if (!block.body?.length) return null;
+      return {
+        kind: "section",
+        // Headingless sections carry on under the heading above them.
+        heading: block.heading?.trim() || undefined,
+        body: block.body,
+      };
     case "imageBlock":
       if (!block.src) return null;
       return {
         kind: "image",
         src: block.src,
         alt: block.alt ?? "",
-        caption: block.caption ?? "",
+        // Blank or whitespace-only captions render nothing at all.
+        caption: block.caption?.trim() || undefined,
       };
     case "factsBlock":
       if (!block.heading || !block.facts?.length) return null;

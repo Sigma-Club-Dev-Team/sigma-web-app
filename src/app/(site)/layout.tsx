@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
-import { hankeen } from "@/fonts";
+import { goudyOldStyle, hankeen } from "@/fonts";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${hankeen.className} w-full antialiased`}
+      className={`${hankeen.className} ${goudyOldStyle.variable} w-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex flex-col min-h-screen w-full">

@@ -59,7 +59,7 @@ function Navbar() {
   // Pages that open on a full-bleed dark hero, which the nav sits on top of
   // rather than above.
   const hasHeroOverlay =
-    pathname === "/" || /^\/programs\/[^/]+$/.test(pathname);
+    pathname === "/" || /^\/(programs|news|events)\/[^/]+$/.test(pathname);
 
   // Once scrolled, every page gets the same frosted bar, so nav content
   // switches to dark ink the way it already does on the inner pages.

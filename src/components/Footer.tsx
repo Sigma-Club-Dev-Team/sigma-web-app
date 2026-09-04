@@ -1,4 +1,5 @@
 import { goudyOldStyle, inter } from "@/fonts";
+import { currentYear, FOUNDING_YEAR, yearsSinceFounding } from "@/lib/club";
 import Image from "next/image";
 import Logo from "../../public/assets/icons/footer-logo.svg";
 import Link from "next/link";
@@ -12,7 +13,7 @@ const clubLink = [
 
 const engagementLink = [
   { id: 1, link: "/programs", name: "Project" },
-  { id: 2, link: "/", name: "Events" },
+  { id: 2, link: "/events", name: "Events" },
   { id: 3, link: "/news", name: "News and Press" },
   { id: 4, link: "/", name: "Marketplace" },
 ];
@@ -47,7 +48,8 @@ function Footer() {
           </div>
 
           <p className="text-[0.75rem] md:text-[0.875rem] py-6 w-80.25 md:w-90">
-            The oldest student organisation in sub-Saharan Africa. Founded 1950
+            The oldest student organisation in sub-Saharan Africa. Founded{" "}
+            {FOUNDING_YEAR}
             at the University of Ibadan. For All That Is Pure.
           </p>
         </div>
@@ -115,11 +117,13 @@ function Footer() {
       <div className="w-full border border-border my-6"></div>
 
       <div className="flex flex-col md:flex-row md:justify-between items-start md:items-center gap-6 text-[0.75rem] text-secondary-white">
-        <p>© 2026 Sigma Club, University of Ibadan. All rights reserved.</p>
+        <p>
+          © {currentYear()} Sigma Club, University of Ibadan. All rights reserved.
+        </p>
         <span className="flex items-center justify-center gap-1">
-          <p>Est. 1950 </p>
+          <p>Est. {FOUNDING_YEAR} </p>
           <p>·</p>
-          <p>Celebrating 75 years</p>
+          <p>Celebrating {yearsSinceFounding()} years</p>
         </span>
       </div>
     </footer>
