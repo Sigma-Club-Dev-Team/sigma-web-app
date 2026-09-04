@@ -5,15 +5,15 @@ import Link from "next/link";
 
 const clubLink = [
   { id: 1, link: "/", name: "Our History" },
-  { id: 2, link: "/", name: "Leadership" },
+  { id: 2, link: "/leadership", name: "Leadership" },
   { id: 3, link: "/", name: "Alumni" },
   { id: 4, link: "/", name: "Constitution" },
 ];
 
 const engagementLink = [
-  { id: 1, link: "/", name: "Project" },
+  { id: 1, link: "/programs", name: "Project" },
   { id: 2, link: "/", name: "Events" },
-  { id: 3, link: "/", name: "News and Press" },
+  { id: 3, link: "/news", name: "News and Press" },
   { id: 4, link: "/", name: "Marketplace" },
 ];
 

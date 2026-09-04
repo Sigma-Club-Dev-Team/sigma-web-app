@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import "./globals.css";
+import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
 import { hankeen } from "@/fonts";
 import Footer from "@/components/Footer";
