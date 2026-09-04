@@ -1,32 +1,11 @@
 import Link from "next/link";
 import { goudyOldStyle } from "@/fonts";
+import { getProgrammes, programmeHref } from "@/lib/programmes";
 import { CoverImage } from "./ui/myImage";
 
-export const activities = [
-  {
-    id: 1,
-    link: "/",
-    photo: "/assets/images/pngs/roseline.png",
-    title: "Roseline Etuokwu Quiz Competition",
-    desc: "Elevating academic standards and expanding educational access for thousands of students across the South-West.",
-  },
-  {
-    id: 2,
-    link: "/",
-    photo: "/assets/images/pngs/mtn-ceo.png",
-    title: "The National Public Lecture Series",
-    desc: "Convening business leaders, policymakers, and academics to solve pressing socioeconomic and technological challenges.",
-  },
-  {
-    id: 3,
-    link: "/",
-    photo: "/assets/images/pngs/scholarship.png",
-    title: "SIGMA Scholarship Scheme",
-    desc: "Providing vital undergraduate funding to indigent students and deploying wellness resources to underserved populations.",
-  },
-];
+async function OurActivities() {
+  const programmes = await getProgrammes();
 
-function OurActivities() {
   return (
     <section className="px-6 md:px-20 pt-15 pb-20 md:pt-30 md:pb-40 flex flex-col items-center gap-12">
       <div className="flex items-center justify-center flex-col gap-12 w-full">
@@ -57,7 +36,7 @@ function OurActivities() {
             </p>
           </div>
           <Link
-            href={"."}
+            href="/programs"
             className={`mt-4 py-3.5 px-6 flex items-center justify-center gap-1 bg-transparent border border-sigma-gold text-sigma-gold rounded-md text-base font-semibold tracking-[-0.00875rem]`}
           >
             Explore Our Impact
@@ -66,10 +45,10 @@ function OurActivities() {
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center gap-12.5 md:gap-4 w-86.25 md:w-full">
-        {activities.map((activity) => (
+        {programmes.map((activity) => (
           <Link
-            href={activity.link}
-            key={activity.id}
+            href={programmeHref(activity.slug)}
+            key={activity.slug}
             className="flex flex-col gap-6"
           >
             <div className="relative w-full aspect-square">

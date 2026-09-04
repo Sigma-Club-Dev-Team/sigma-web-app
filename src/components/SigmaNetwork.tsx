@@ -1,4 +1,5 @@
 import { goudyOldStyle } from "@/fonts";
+import { yearsSinceFounding } from "@/lib/club";
 
 function SigmaNetwork() {
   return (
@@ -28,7 +29,7 @@ function SigmaNetwork() {
           <h4
             className={`${goudyOldStyle.className} text-[1.375rem] text-sigma-white`}
           >
-            75+ Years
+            {yearsSinceFounding()}+ Years
           </h4>
           <p className={` text-[0.8125rem] w-70`}>
             of continuous student leadership and character development.
