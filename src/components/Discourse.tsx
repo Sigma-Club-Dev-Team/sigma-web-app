@@ -57,11 +57,12 @@ function Discourse() {
           legacy of the fellowship.
         </p>
         <div className="hidden md:flex  w-full md:mt-10">
-          <button
+          <Link
+            href={"/news"}
             className={`cursor-pointer flex items-center justify-center py-3.5 px-6 rounded-md text-sigma-navy font-semibold tracking-[-0.00875rem] bg-transparent border-2 border-sigma-purple`}
           >
             Read More
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -98,11 +99,12 @@ function Discourse() {
       </div>
 
       <div className="flex md:hidden  items-center justify-center w-full">
-        <button
+        <Link
+          href={"/news"}
           className={`flex items-center justify-center py-3.5 px-6 rounded-md text-sigma-navy font-semibold tracking-[-0.00875rem] bg-transparent border-2 border-sigma-purple`}
         >
           Read More
-        </button>
+        </Link>
       </div>
     </section>
   );

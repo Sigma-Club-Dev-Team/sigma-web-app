@@ -8,6 +8,7 @@ import FacebookIcon from "./facebook.svg";
 import TwitterIcon from "./x.svg";
 import InstagramIcon from "./insta.svg";
 import YoutubeIcon from "./youtube.svg";
+import CloseIcon from "./close.svg";
 
 export {
   Hamburger,
@@ -19,4 +20,5 @@ export {
   YoutubeIcon,
   LinkedInIcon,
   searchIcon,
+  CloseIcon,
 };
