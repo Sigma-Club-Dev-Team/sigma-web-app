@@ -6,15 +6,27 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sanity": "sanity",
+    "seed:generate": "node scripts/generate-programme-seed.mts",
+    "seed:import": "pnpm seed:generate && sanity dataset import src/sanity/seed/programmes.ndjson --dataset production --replace",
+    "seed:news:generate": "node scripts/generate-news-seed.mts",
+    "seed:news:import": "pnpm seed:news:generate && sanity dataset import src/sanity/seed/news.ndjson --dataset production --replace",
+    "seed:events:generate": "node scripts/generate-event-seed.mts",
+    "seed:events:import": "pnpm seed:events:generate && sanity dataset import src/sanity/seed/events.ndjson --dataset production --replace"
   },
   "dependencies": {
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^6.12.0",
     "clsx": "^2.1.1",
     "lucide": "^1.23.0",
     "lucide-react": "^1.23.0",
     "next": "16.2.10",
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
+    "next-sanity": "^13.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "sanity": "^6.12.0",
+    "styled-components": "^6.5.3",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {

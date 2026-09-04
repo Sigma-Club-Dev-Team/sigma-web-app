@@ -1,4 +1,5 @@
 import { goudyOldStyle } from "@/fonts";
+import { yearsSinceFounding } from "@/lib/club";
 import Link from "next/link";
 
 function HeroSection() {
@@ -16,7 +17,7 @@ function HeroSection() {
           className={`text-[0.875rem] md:text-[1.125rem] tracking-[-0.00875rem] md:tracking-[-0.01125rem] w-78.25 md:w-158 font-normal`}
         >
           A community of scholars, leaders, and changemakers united by a shared
-          standard of excellence for over 75 years.
+          standard of excellence for over {yearsSinceFounding()} years.
         </p>
         <div className=" flex items-center justify-center gap-4.5 md:gap-6 mt-2 md:mt-5 mb-12 md:mb-39.25 relative z-10">
           <Link

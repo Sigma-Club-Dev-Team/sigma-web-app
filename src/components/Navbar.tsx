@@ -28,10 +28,20 @@ const aboutLinks = [
   { id: 5, name: "Honorary Sigmites", link: "/honourary-sigmites" },
 ];
 
+// `category` matches the values in the Sanity `programme` schema, so the
+// programmes page opens with that filter already applied.
 const ourWorkLinks = [
   { id: 1, name: "All Projects", link: "/programs" },
-  { id: 2, name: "Flagship Projects", link: "/" },
-  { id: 3, name: "Impacts and Outreach", link: "/" },
+  {
+    id: 2,
+    name: "Flagship Projects",
+    link: "/programs?category=Flagship+Events",
+  },
+  {
+    id: 3,
+    name: "Impacts and Outreach",
+    link: "/programs?category=Impact+and+outreach",
+  },
 ];
 
 import purpleLogo from "../../public/assets/icons/logo-purple.svg.svg";
@@ -46,15 +56,18 @@ function Navbar() {
   const wasScrolled = useRef(false);
   const pathname = usePathname();
 
-  const isHome = pathname === "/";
+  // Pages that open on a full-bleed dark hero, which the nav sits on top of
+  // rather than above.
+  const hasHeroOverlay =
+    pathname === "/" || /^\/(programs|news|events)\/[^/]+$/.test(pathname);
 
   // Once scrolled, every page gets the same frosted bar, so nav content
   // switches to dark ink the way it already does on the inner pages.
-  const onLightBg = !isHome || isScrolled;
+  const onLightBg = !hasHeroOverlay || isScrolled;
 
   const barBackground = isScrolled
     ? "bg-white/70 backdrop-blur-xl shadow-[0_1px_3px_0_rgba(100,95,88,0.15)]"
-    : isHome
+    : hasHeroOverlay
       ? "bg-linear-to-t md:from-black/0 md:to-black/20 md:backdrop-blur-[0.625rem]"
       : "bg-white";
 

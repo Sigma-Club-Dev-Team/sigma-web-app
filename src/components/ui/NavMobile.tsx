@@ -3,11 +3,11 @@ import Link from "next/link";
 
 const mobileNavlinks = [
   { id: 1, name: "About", link: "/" },
-  { id: 2, name: "Our Work", link: "/" },
-  { id: 3, name: "News", link: "/" },
+  { id: 2, name: "Our Work", link: "/programs" },
+  { id: 3, name: "News", link: "/news" },
   { id: 4, name: "Donate", link: "/" },
   { id: 5, name: "Marketplace", link: "/" },
-  { id: 6, name: "Events", link: "/" },
+  { id: 6, name: "Events", link: "/events" },
   { id: 7, name: "Alumni", link: "/" },
   { id: 8, name: "Press Hub", link: "/" },
   { id: 9, name: "The Archive", link: "/" },
