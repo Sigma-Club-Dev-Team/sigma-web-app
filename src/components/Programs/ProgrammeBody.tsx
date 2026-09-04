@@ -23,7 +23,7 @@ function BlockHeading({ children }: { children: React.ReactNode }) {
 function Block({ block }: { block: ProgrammeBlock }) {
   if (block.kind === "image") {
     return (
-      <figure className="flex flex-col gap-4">
+      <figure className={`flex flex-col ${block.caption ? "gap-4" : ""}`}>
         <div className="relative w-full aspect-4/3 bg-[#D9D9D9]">
           <CoverImage
             src={block.src}
@@ -31,18 +31,20 @@ function Block({ block }: { block: ProgrammeBlock }) {
             sizes="(max-width: 768px) 100vw, 60vw"
           />
         </div>
-        <figcaption
-          className={`${goudyOldStyle.className} italic text-center text-sigma-black text-xs md:text-[0.8125rem]`}
-        >
-          {block.caption}
-        </figcaption>
+        {block.caption && (
+          <figcaption
+            className={`${goudyOldStyle.className} italic text-center text-sigma-black text-xs md:text-[0.8125rem]`}
+          >
+            {block.caption}
+          </figcaption>
+        )}
       </figure>
     );
   }
 
   return (
     <div className="flex flex-col gap-5 md:gap-6">
-      <BlockHeading>{block.heading}</BlockHeading>
+      {block.heading && <BlockHeading>{block.heading}</BlockHeading>}
 
       {block.kind === "section" &&
         block.body.map((paragraph) => (

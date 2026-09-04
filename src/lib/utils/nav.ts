@@ -27,7 +27,7 @@ export const BottomNavLeft = [
   { id: 3, link: "/news", name: "News" },
 ];
 export const BottomNavRight = [
-  { id: 1, link: "/", name: "Events" },
+  { id: 1, link: "/events", name: "Events" },
   { id: 2, link: "/", name: "Marketplace" },
   { id: 3, link: "/", name: "Donate" },
 ];

@@ -23,8 +23,9 @@ export type ProgrammeEdition = {
  * fixed slots.
  */
 export type ProgrammeBlock =
-  | { kind: "section"; heading: string; body: string[] }
-  | { kind: "image"; src: string; alt: string; caption: string }
+  /** `heading` is optional — leave it off to continue the section above. */
+  | { kind: "section"; heading?: string; body: string[] }
+  | { kind: "image"; src: string; alt: string; caption?: string }
   | { kind: "facts"; heading: string; facts: ProgrammeFact[] }
   | { kind: "editions"; heading: string; editions: ProgrammeEdition[] };
 

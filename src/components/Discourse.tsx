@@ -1,39 +1,12 @@
-import { goudyOldStyle } from "@/fonts";
-import Image from "next/image";
 import Link from "next/link";
+
+import { goudyOldStyle } from "@/fonts";
+import { type ArticleSummary, articleHref } from "@/lib/news";
+
 import { CoverImage } from "./ui/myImage";
 
-export const newsPublications = [
-  {
-    id: 1,
-    link: "/",
-    thumbnail: "/assets/images/pngs/admission-interview.png",
-    category: "ANNOUNCEMENT",
-    title: "2024/2025 Sigma Admission Interview",
-    author: "Sigma Club",
-    pubDate: "July 28, 2025",
-  },
-  {
-    id: 2,
-    link: "/",
-    thumbnail: "/assets/images/pngs/admission-interview.png",
-    category: "ANNOUNCEMENT",
-    title: "2024/2025 Sigma Admission Interview",
-    author: "Sigma Club",
-    pubDate: "July 28, 2025",
-  },
-  {
-    id: 3,
-    link: "/",
-    thumbnail: "/assets/images/pngs/admission-interview.png",
-    category: "ANNOUNCEMENT",
-    title: "2024/2025 Sigma Admission Interview",
-    author: "Sigma Club",
-    pubDate: "July 28, 2025",
-  },
-];
-
-function Discourse() {
+/** The home page rail: the three most recent stories, newest first. */
+function Discourse({ articles }: { articles: ArticleSummary[] }) {
   return (
     <section className="flex flex-col md:flex-row items-start justify-center md:justify-between pt-30 pb-20 px-6 md:px-20 w-full gap-12 md:gap-9 bg-[#F7F5F1] relative overflow-hidden">
       <div className="flex w-full h-full flex-col items-start">
@@ -67,32 +40,39 @@ function Discourse() {
       </div>
 
       <div className="flex flex-col items-start w-full">
-        {newsPublications.map((item) => (
+        {articles.map((article) => (
           <Link
-            key={item.id}
-            href={item.link}
-            className={`flex items-center justify-between w-full gap-4 py-6 border-b border-b-border ${item.id === newsPublications.length ? "border-b-0" : ""}`}
+            key={article.slug}
+            href={articleHref(article.slug)}
+            className="group flex items-center justify-between w-full gap-4 py-6 border-b border-b-border last:border-b-0"
           >
             <div className="flex flex-col items-start justify-center">
               <h6
                 className={`${goudyOldStyle.className} pb-2 flex items-center justify-center gap-2.5 text-[0.875rem] md:text-[1rem] text-sigma-black`}
               >
-                {item.category}
+                {article.category}
               </h6>
-              <h1
-                className={`${goudyOldStyle.className} pb-2 md:pb-4 tracking-normal leading-normal text-[1rem] md:text-[1.375rem] text-sigma-purple w-57.25 md:w-full`}
+              <h3
+                className={`${goudyOldStyle.className} pb-2 md:pb-4 tracking-normal leading-normal text-[1rem] md:text-[1.375rem] text-sigma-purple w-57.25 md:w-full group-hover:underline underline-offset-4 decoration-sigma-gold`}
               >
-                {item.title}
-              </h1>
+                {article.title}
+              </h3>
 
               <div className="flex items-start justify-center gap-1 md:gap-2 text-[0.75rem] md:text-[0.875rem]">
-                <p className={`text-sigma-gold font-bold`}>{item.author}</p>
+                <p className={`text-sigma-gold font-bold`}>{article.author}</p>
                 <small className="text-secondary">•</small>
-                <p className={` text-secondary`}>{item.pubDate}</p>
+                <time dateTime={article.publishedAt} className="text-secondary">
+                  {article.displayDate}
+                </time>
               </div>
             </div>
-            <div className="relative h-25 w-25">
-              <CoverImage src={item.thumbnail} alt={item.title} />
+            <div className="relative h-25 w-25 shrink-0 overflow-hidden bg-[#D9D9D9]">
+              <CoverImage
+                src={article.coverImage}
+                alt={article.title}
+                className="transition-transform duration-500 group-hover:scale-105"
+                sizes="6.25rem"
+              />
             </div>
           </Link>
         ))}

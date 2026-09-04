@@ -48,7 +48,6 @@ export const programmes: Programme[] = [
         kind: "image",
         src: "/assets/images/pngs/quiz-23.png",
         alt: "Finalists at the Roseline Etuokwu Quiz Competition",
-        caption: "Image description goes here",
       },
       {
         kind: "editions",
@@ -141,7 +140,6 @@ export const programmes: Programme[] = [
         kind: "image",
         src: "/assets/images/pngs/mtn-ceo.png",
         alt: "Dr. Karl Toriola delivering the 11th Sigma Public Lecture",
-        caption: "Image description goes here",
       },
       {
         kind: "section",
@@ -190,7 +188,6 @@ export const programmes: Programme[] = [
         kind: "image",
         src: "/assets/images/pngs/ui-gate.png",
         alt: "The University of Ibadan main gate",
-        caption: "Image description goes here",
       },
     ],
   },
@@ -231,7 +228,6 @@ export const programmes: Programme[] = [
         kind: "image",
         src: "/assets/images/pngs/scholarship.png",
         alt: "Scholarship recipients",
-        caption: "Image description goes here",
       },
       {
         kind: "section",
@@ -251,7 +247,6 @@ export const programmes: Programme[] = [
         kind: "image",
         src: "/assets/images/pngs/sigma-health-outreach.png",
         alt: "Community health outreach",
-        caption: "Image description goes here",
       },
     ],
   },

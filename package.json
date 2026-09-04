@@ -9,7 +9,11 @@
     "lint": "eslint",
     "sanity": "sanity",
     "seed:generate": "node scripts/generate-programme-seed.mts",
-    "seed:import": "pnpm seed:generate && sanity dataset import src/sanity/seed/programmes.ndjson --dataset production --replace"
+    "seed:import": "pnpm seed:generate && sanity dataset import src/sanity/seed/programmes.ndjson --dataset production --replace",
+    "seed:news:generate": "node scripts/generate-news-seed.mts",
+    "seed:news:import": "pnpm seed:news:generate && sanity dataset import src/sanity/seed/news.ndjson --dataset production --replace",
+    "seed:events:generate": "node scripts/generate-event-seed.mts",
+    "seed:events:import": "pnpm seed:events:generate && sanity dataset import src/sanity/seed/events.ndjson --dataset production --replace"
   },
   "dependencies": {
     "@sanity/image-url": "^2.1.1",
